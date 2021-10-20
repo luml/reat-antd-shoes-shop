@@ -1,12 +1,15 @@
 import React from 'react';
+import { Select } from 'antd'
+
+const { Option } = Select
 
 const ColorSelector = ({color, colors, onChangeColor}) => {
   function colorOptions() {
     return colors.map((name) => {
       return (
-        <option value={name} key={name}>
+        <Option value={name} key={name}>
           {name}
-        </option>
+        </Option>
       )
     })
   }
@@ -14,14 +17,14 @@ const ColorSelector = ({color, colors, onChangeColor}) => {
   return (
     <div>
       <label htmlFor="color-options">Color:</label>
-      <select
+      <Select
         defaultValue={color}
         name="colorOptions"
         id="color-options"
-        onChange={(event) => onChangeColor(event.target.value)}
+        onChange={onChangeColor}
       >
         {colorOptions()}
-      </select>
+      </Select>
     </div>
   )
 }

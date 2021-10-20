@@ -1,13 +1,16 @@
 import React from 'react';
+import { Select } from 'antd'
+
+const { Option } = Select;
 
 // limited colors for differnet sizes
 const SizeSelector = ({size, sizes, onChangeSize}) => {
   function sizeOptions() {
     return sizes.map((num) => {
       return (
-        <option value={num} key={num}>
+        <Option value={num} key={num}>
           {num}
-        </option>
+        </Option>
       )
     })
   }
@@ -15,14 +18,14 @@ const SizeSelector = ({size, sizes, onChangeSize}) => {
   return (
     <div>
       <label htmlFor="size-options">Size:</label>
-      <select
+      <Select
         defaultValue={size}
         name="sizeOptions"
         id="size-options"
-        onChange={(event) => onChangeSize(event.target.value)}
+        onChange={onChangeSize}
       >
         {sizeOptions()}
-      </select>
+      </Select>
     </div>
   )
 }
